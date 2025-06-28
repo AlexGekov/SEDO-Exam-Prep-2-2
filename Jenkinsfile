@@ -9,17 +9,17 @@ pipeline {
         }
         stage('Restore dependencies') {
             steps {
-                sh 'dotnet restore'
+                bad 'dotnet restore'
             }
         }
         stage('Build') {
             steps {
-                sh 'dotnet build --no-restore'
+                bad 'dotnet build --no-restore'
             }
         }
         stage('Test') {
             steps {
-                sh 'dotnet test --no-build --verbosity normal'
+                bad 'dotnet test --no-build --verbosity normal'
             }
         }
     }
